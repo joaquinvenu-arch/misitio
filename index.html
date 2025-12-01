@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Marca - Soluciones Profesionales</title>
+    <!-- Fuente de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --primary-color: #FFC107; /* Amarillo Principal */
+            --primary-hover: #FFB300; /* Amarillo más oscuro para hover */
+            --text-dark: #1f1f1f;
+            --text-light: #666666;
+            --white: #ffffff;
+            --bg-light: #f9f9f9;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        
+        .logo span {
+            color: #d4a000; /* Un tono amarillo más oscuro para texto blanco */
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #d4a000;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+            padding-top: 70px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- CARACTERÍSTICAS (FEATURES) --- */
+        .features {
+            background-color: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: 0.3s;
+            border-bottom: 5px solid transparent;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            font-size: 1.25rem;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* --- SOBRE NOSOTROS --- */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-img img {
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 10px solid var(--primary-color);
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        /* --- CONTACTO --- */
+        .contact {
+            background-color: var(--text-dark);
+            color: var(--white);
+        }
+
+        .contact h2 { color: var(--white); }
+        .contact .section-subtitle { color: #ccc; }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.05);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            background: #2a2a2a;
+            color: var(--white);
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE CSS --- */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            
+            .nav-links {
+                position: absolute;
+                right: 0px;
+                top: 70px;
+                background-color: var(--white);
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: 0.3s ease-in-out;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                max-height: 300px;
+                padding: 20px 0;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">TU<span>MARCA</span></div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#caracteristicas">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    &#9776; <!-- Ícono de menú -->
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h1>Impulsa tu Negocio al <br><span style="color: var(--primary-color);">Siguiente Nivel</span></h1>
+            <p>Ofrecemos soluciones integrales adaptadas a tus necesidades. Calidad, rapidez y eficiencia en un solo lugar.</p>
+            <a href="#contacto" class="btn">Empezar Ahora</a>
+        </div>
+    </section>
+
+    <!-- CARACTERÍSTICAS -->
+    <section class="features" id="caracteristicas">
+        <div class="container">
+            <h2>Nuestros Servicios</h2>
+            <p class="section-subtitle">Descubre lo que podemos hacer por ti con nuestras soluciones especializadas.</p>
+            
+            <div class="features-grid">
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <span class="card-icon">⚡</span>
+                    <h3>Rápido y Eficaz</h3>
+                    <p>Optimizamos procesos para entregarte resultados en tiempo récord sin sacrificar calidad.</p>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="card">
+                    <span class="card-icon">💎</span>
+                    <h3>Calidad Premium</h3>
+                    <p>Utilizamos las mejores herramientas y estándares del mercado para garantizar excelencia.</p>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <span class="card-icon">🤝</span>
+                    <h3>Soporte 24/7</h3>
+                    <p>Nuestro equipo de expertos está siempre disponible para resolver tus dudas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-img">
+                    <!-- Imagen genérica de oficina -->
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Equipo de trabajo">
+                </div>
+                <div class="about-text">
+                    <h3>¿Quiénes Somos?</h3>
+                    <p>Somos una agencia dedicada a transformar ideas en realidad. Con más de 10 años de experiencia en el sector, hemos ayudado a cientos de empresas a alcanzar sus objetivos.</p>
+                    <p>Nuestra filosofía se basa en la transparencia, el trabajo duro y la creatividad. Creemos que el color amarillo representa nuestra energía y optimismo para enfrentar cualquier reto.</p>
+                    <a href="#contacto" class="btn" style="background-color: var(--text-dark); color: var(--primary-color);">Conoce al equipo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2>Contáctanos</h2>
+            <p class="section-subtitle">Déjanos tus datos y nos pondremos en contacto contigo lo antes posible.</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Correo Electrónico</label>
+                    <input type="email" id="email" placeholder="tu@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" rows="5" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tu Marca. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // 1. Funcionalidad del Menú Móvil
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const links = document.querySelectorAll('.nav-links li a');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // 2. Funcionalidad del Formulario (Simulación)
+        const form = document.getElementById('contactForm');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Evita que la página se recargue
+            
+            // Aquí iría tu lógica de envío real (Backend, EmailJS, etc.)
+            const name = document.getElementById('name').value;
+            
+            alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Nos pondremos en contacto pronto.`);
+            form.reset();
+        });
+
+        // 3. Efecto de Scroll en el Navbar (Opcional)
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.boxShadow = "0 4px 6px rgba(0,0,0,0.2)";
+            } else {
+                header.style.boxShadow = "0 4px 6px rgba(0,0,0,0.1)";
+            }
+        });
+    </script>
+</body>
+</html>
