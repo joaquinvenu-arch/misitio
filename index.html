@@ -31,6 +31,7 @@
             line-height: 1.6;
             color: var(--text-dark);
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Evita scroll horizontal por banners grandes */
         }
 
         a { text-decoration: none; color: inherit; }
@@ -43,6 +44,26 @@
             padding: 0 20px;
         }
 
+        /* --- CLASE PARA PUBLICIDAD --- */
+        .ad-wrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0;
+            background-color: transparent;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        
+        .ad-label {
+            font-size: 0.7rem;
+            color: #ccc;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- BOTONES --- */
         .btn {
             display: inline-block;
             background-color: var(--primary-color);
@@ -107,7 +128,7 @@
         }
         
         .logo span {
-            color: #d4a000; /* Un tono amarillo más oscuro para texto blanco */
+            color: #d4a000;
         }
 
         .nav-links {
@@ -336,7 +357,7 @@
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
                 <div class="hamburger" id="hamburger">
-                    &#9776; <!-- Ícono de menú -->
+                    &#9776;
                 </div>
             </nav>
         </div>
@@ -346,10 +367,21 @@
     <section class="hero" id="inicio">
         <div class="container hero-content">
             <h1>Impulsa tu Negocio al <br><span style="color: var(--primary-color);">Siguiente Nivel</span></h1>
-            <p>Ofrecemos soluciones integrales adaptadas a tus necesidades. Calidad, rapidez y eficiencia en un solo lugar.</p>
+            <p>Ofrecemos soluciones integrales adaptadas a tus necesidades. Calidad, rapidez y eficiencia.</p>
             <a href="#contacto" class="btn">Empezar Ahora</a>
         </div>
     </section>
+
+    <!-- PUBLICIDAD 1: Banner Contenedor Grande -->
+    <div class="container">
+        <div class="ad-wrapper">
+            <span class="ad-label">Publicidad</span>
+            <!-- INICIO SCRIPT PUBLICIDAD 1 -->
+            <script async="async" data-cfasync="false" src="//pl28171481.effectivegatecpm.com/93b4c63c24893dbbb2d09b5368da2c31/invoke.js"></script>
+            <div id="container-93b4c63c24893dbbb2d09b5368da2c31"></div>
+            <!-- FIN SCRIPT PUBLICIDAD 1 -->
+        </div>
+    </div>
 
     <!-- CARACTERÍSTICAS -->
     <section class="features" id="caracteristicas">
@@ -358,19 +390,16 @@
             <p class="section-subtitle">Descubre lo que podemos hacer por ti con nuestras soluciones especializadas.</p>
             
             <div class="features-grid">
-                <!-- Tarjeta 1 -->
                 <div class="card">
                     <span class="card-icon">⚡</span>
                     <h3>Rápido y Eficaz</h3>
                     <p>Optimizamos procesos para entregarte resultados en tiempo récord sin sacrificar calidad.</p>
                 </div>
-                <!-- Tarjeta 2 -->
                 <div class="card">
                     <span class="card-icon">💎</span>
                     <h3>Calidad Premium</h3>
                     <p>Utilizamos las mejores herramientas y estándares del mercado para garantizar excelencia.</p>
                 </div>
-                <!-- Tarjeta 3 -->
                 <div class="card">
                     <span class="card-icon">🤝</span>
                     <h3>Soporte 24/7</h3>
@@ -385,13 +414,12 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-img">
-                    <!-- Imagen genérica de oficina -->
                     <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Equipo de trabajo">
                 </div>
                 <div class="about-text">
                     <h3>¿Quiénes Somos?</h3>
-                    <p>Somos una agencia dedicada a transformar ideas en realidad. Con más de 10 años de experiencia en el sector, hemos ayudado a cientos de empresas a alcanzar sus objetivos.</p>
-                    <p>Nuestra filosofía se basa en la transparencia, el trabajo duro y la creatividad. Creemos que el color amarillo representa nuestra energía y optimismo para enfrentar cualquier reto.</p>
+                    <p>Somos una agencia dedicada a transformar ideas en realidad. Con más de 10 años de experiencia en el sector, hemos ayudado a cientos de empresas.</p>
+                    <p>Nuestra filosofía se basa en la transparencia, el trabajo duro y la creatividad.</p>
                     <a href="#contacto" class="btn" style="background-color: var(--text-dark); color: var(--primary-color);">Conoce al equipo</a>
                 </div>
             </div>
@@ -422,6 +450,27 @@
         </div>
     </section>
 
+    <!-- PUBLICIDAD 2: Banner 468x60 -->
+    <div style="background-color: #1a1a1a;">
+        <div class="container">
+            <div class="ad-wrapper">
+                <span class="ad-label">Patrocinado</span>
+                <!-- INICIO SCRIPT PUBLICIDAD 2 -->
+                <script type="text/javascript">
+                    atOptions = {
+                        'key' : '04b0ab663d2adc5b0c3a3ffc01343cdf',
+                        'format' : 'iframe',
+                        'height' : 60,
+                        'width' : 468,
+                        'params' : {}
+                    };
+                </script>
+                <script type="text/javascript" src="//www.highperformanceformat.com/04b0ab663d2adc5b0c3a3ffc01343cdf/invoke.js"></script>
+                <!-- FIN SCRIPT PUBLICIDAD 2 -->
+            </div>
+        </div>
+    </div>
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
@@ -429,38 +478,26 @@
         </div>
     </footer>
 
-    <!-- JAVASCRIPT -->
+    <!-- JAVASCRIPT LOCAL -->
     <script>
-        // 1. Funcionalidad del Menú Móvil
         const hamburger = document.getElementById('hamburger');
         const navLinks = document.getElementById('navLinks');
         const links = document.querySelectorAll('.nav-links li a');
 
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+        hamburger.addEventListener('click', () => { navLinks.classList.toggle('active'); });
 
-        // Cerrar menú al hacer clic en un enlace
         links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
+            link.addEventListener('click', () => { navLinks.classList.remove('active'); });
         });
 
-        // 2. Funcionalidad del Formulario (Simulación)
         const form = document.getElementById('contactForm');
-
         form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Evita que la página se recargue
-            
-            // Aquí iría tu lógica de envío real (Backend, EmailJS, etc.)
+            e.preventDefault();
             const name = document.getElementById('name').value;
-            
-            alert(`¡Gracias ${name}! Hemos recibido tu mensaje. Nos pondremos en contacto pronto.`);
+            alert(`¡Gracias ${name}! Hemos recibido tu mensaje.`);
             form.reset();
         });
 
-        // 3. Efecto de Scroll en el Navbar (Opcional)
         window.addEventListener('scroll', () => {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -470,5 +507,11 @@
             }
         });
     </script>
+
+    <!-- PUBLICIDAD 3: SCRIPTS DE FONDO/POP-UNDER -->
+    <!-- Colocados al final para no afectar el renderizado inicial -->
+    <script type='text/javascript' src='//pl28171489.effectivegatecpm.com/dd/a5/b0/dda5b0fbca02a53eac7948a779f74278.js'></script>
+    <script type='text/javascript' src='//pl28171510.effectivegatecpm.com/6b/6d/a5/6b6da5b22002f17e2907d385948a322a.js'></script>
+
 </body>
 </html>
